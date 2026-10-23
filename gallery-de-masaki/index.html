@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ぎゃらりぃどまさき｜大和高田市のレンタルスペース</title>
+  <meta name="description" content="近鉄大和高田駅前徒歩1分。英会話・習字・生花・プログラミングなど、あなたのやりたいことに、ちょうどいい場所。気軽に始められる料金設定のレンタルスペースです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --white: #F8F8F8;
+      --cream: #F0F0F0;
+      --stone: #DCDCDC;
+      --terra: #1B4FDB;
+      --terra-light: #4370E8;
+      --terra-pale: #E8EEFB;
+      --sage: #4370E8;
+      --sage-light: #A0B4F0;
+      --charcoal: #1A1A1A;
+      --gray-mid: #5A5A5A;
+      --gray-light: #9A9A9A;
+      --shadow: rgba(0,0,0,0.07);
+      --shadow-md: rgba(0,0,0,0.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,120,90,0.15);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px var(--shadow); }
+
+    .nav-logo {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--terra); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      color: var(--gray-mid);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      background: var(--terra);
+      color: white !important;
+      padding: 9px 22px;
+      border-radius: 100px;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--terra-light) !important; transform: translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--terra-pale);
+      color: var(--terra);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      width: fit-content;
+      letter-spacing: 0.06em;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--terra);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .hero-title .accent { color: var(--terra); }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray-mid);
+      margin-bottom: 48px;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--terra);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(196,120,90,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--terra-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(196,120,90,0.38);
+    }
+    .btn-primary svg { width: 18px; height: 18px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--charcoal);
+      font-size: 0.88rem;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--charcoal);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--terra); border-color: var(--terra); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--stone);
+    }
+    .stat-num {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--gray-light);
+      letter-spacing: 0.06em;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-img-wrap {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .hero-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* hero placeholder */
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ECECEC 0%, #D8D8D8 40%, #C8C8C8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--gray-mid);
+    }
+    .hero-img-placeholder svg { opacity: 0.4; }
+    .hero-img-placeholder p { font-size: 0.82rem; opacity: 0.6; letter-spacing: 0.06em; }
+
+    .hero-img-card {
+      position: absolute;
+      bottom: 40px;
+      left: 20px;
+      background: white;
+      border-radius: 16px;
+      padding: 18px 24px;
+      box-shadow: 0 8px 40px var(--shadow-md);
+      min-width: 200px;
+    }
+    .card-label { font-size: 0.72rem; color: var(--gray-light); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .card-value {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .card-sub { font-size: 0.8rem; color: var(--terra); font-weight: 500; margin-top: 2px; }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: 100px 80px; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--terra);
+    }
+
+    .section-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      color: var(--charcoal);
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--gray-mid);
+      max-width: 520px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    /* ===== USE CASES ===== */
+    #uses { background: var(--cream); }
+
+    .uses-header { margin-bottom: 56px; }
+
+    .uses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .use-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 30px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid transparent;
+      cursor: default;
+    }
+    .use-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow-md);
+      border-color: var(--terra-pale);
+    }
+
+    .use-icon {
+      width: 52px; height: 52px;
+      background: var(--terra-pale);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .use-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    .use-desc {
+      font-size: 0.83rem;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ===== ROOMS ===== */
+    #rooms { background: var(--white); }
+
+    .rooms-header { margin-bottom: 60px; }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .room-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--stone);
+      transition: box-shadow 0.25s;
+    }
+    .room-card:hover { box-shadow: 0 12px 48px var(--shadow-md); }
+
+    .room-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .room-img-placeholder {
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #ECECEC, #D8D8D8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gray-mid);
+    }
+    .room-img-placeholder span { font-size: 0.78rem; opacity: 0.6; letter-spacing: 0.06em; }
+
+    .room-body { padding: 32px; }
+
+    .room-floor {
+      display: inline-block;
+      background: var(--terra-pale);
+      color: var(--terra);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    .room-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .room-specs {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .spec-label { font-size: 0.7rem; color: var(--gray-light); letter-spacing: 0.08em; }
+    .spec-value { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); }
+
+    .room-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .feature-tag {
+      background: var(--cream);
+      color: var(--gray-mid);
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--stone);
+    }
+
+    /* ===== PRICING ===== */
+    #pricing { background: var(--charcoal); color: white; }
+
+    #pricing .section-label { color: var(--terra-light); }
+    #pricing .section-label::after { background: var(--terra-light); }
+    #pricing .section-title { color: white; }
+    #pricing .section-desc { color: rgba(255,255,255,0.55); }
+
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .price-tag {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--terra-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .price-tag span { font-size: 1.2rem; }
+    .price-unit { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 32px; letter-spacing: 0.06em; }
+
+    .price-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 28px 0; }
+
+    .price-examples {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+    .price-ex-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price-ex-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+    .price-ex-val { font-size: 0.9rem; font-weight: 500; color: white; }
+
+    .pricing-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .pricing-note-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .note-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: rgba(196,120,90,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .note-title { font-size: 0.9rem; font-weight: 500; color: white; margin-bottom: 4px; }
+    .note-desc { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* ===== ACCESS ===== */
+    #access { background: var(--cream); }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 56px;
+    }
+
+    .access-info { display: flex; flex-direction: column; gap: 28px; }
+
+    .access-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .access-icon {
+      width: 46px; height: 46px;
+      flex-shrink: 0;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px var(--shadow);
+      font-size: 1.1rem;
+    }
+    .access-label { font-size: 0.72rem; color: var(--gray-light); letter-spacing: 0.08em; margin-bottom: 4px; }
+    .access-value { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); }
+    .access-sub { font-size: 0.8rem; color: var(--gray-mid); margin-top: 2px; }
+
+    .map-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px var(--shadow-md);
+      aspect-ratio: 4/3;
+      background: var(--stone);
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ===== FAQ ===== */
+    #faq { background: var(--white); }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .faq-item {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--stone);
+    }
+
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .faq-q::before {
+      content: 'Q';
+      color: var(--terra);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .faq-a {
+      font-size: 0.83rem;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      padding-left: 22px;
+      font-weight: 300;
+    }
+
+    /* ===== CTA ===== */
+    #contact {
+      background: linear-gradient(135deg, #1B4FDB 0%, #0F2E8A 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 80px;
+    }
+
+    #contact .section-label { color: rgba(255,255,255,0.7); justify-content: center; }
+    #contact .section-label::after { background: rgba(255,255,255,0.5); }
+    #contact .section-title { color: white; text-align: center; }
+
+    .contact-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 16px auto 48px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--terra);
+      padding: 18px 40px;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid rgba(255,255,255,0.6);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--terra-light); }
+
+    .footer-info { font-size: 0.78rem; line-height: 1.8; text-align: right; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d4 { transition-delay: 0.4s; }
+    .fade-up-d5 { transition-delay: 0.5s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 28px; }
+      footer { padding: 40px 28px; flex-direction: column; gap: 20px; text-align: center; }
+      .footer-info { text-align: center; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 48px 28px 60px; }
+      .hero-right { height: 280px; }
+      .hero-img-card { left: 20px; bottom: 20px; }
+      .hero-stats { flex-wrap: wrap; gap: 28px; }
+
+      .uses-grid { grid-template-columns: 1fr 1fr; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .pricing-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .access-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      #contact { padding: 72px 28px; }
+    }
+
+    @media (max-width: 540px) {
+      .uses-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 1.7rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">ぎゃらりぃ<span>どまさき</span></a>
+    <ul class="nav-links">
+      <li><a href="#uses">使い方</a></li>
+      <li><a href="#rooms">お部屋</a></li>
+      <li><a href="#pricing">料金</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#contact" class="nav-cta">予約する</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge fade-up">近鉄大和高田駅前 徒歩1分</div>
+      <h1 class="hero-title fade-up fade-up-d1">
+        あなたのやりたいことに、<br><span class="accent">ちょうどいい場所。</span>
+      </h1>
+      <p class="hero-subtitle fade-up fade-up-d2">
+        駅前1分。大和高田市のレンタルスペース。
+      </p>
+      <div class="hero-actions fade-up fade-up-d3">
+        <a href="https://reserva.be/gallerydemasaki" target="_blank" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          空き状況・予約
+        </a>
+        <a href="#rooms" class="btn-secondary">お部屋を見る →</a>
+      </div>
+      <div class="hero-stats fade-up fade-up-d4">
+        <div class="stat-item">
+          <div class="stat-num">2F・3F</div>
+          <div class="stat-label">2つのお部屋</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">400<span style="font-size:1rem">円〜</span></div>
+          <div class="stat-label">30分あたり</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1<span style="font-size:1rem">分</span></div>
+          <div class="stat-label">駅から徒歩</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/hero.webp" alt="ぎゃらりぃどまさき 室内" class="hero-img-main">
+      <div class="hero-img-placeholder">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <p>室内写真をここに配置</p>
+      </div>
+      <div class="hero-img-card fade-up fade-up-d5">
+        <div class="card-label">GALLERY DE MASAKI</div>
+        <div class="card-value">大和高田市 大字大中</div>
+        <div class="card-sub">教室・会議・趣味に</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="uses">
+    <div class="uses-header">
+      <div class="section-label fade-up">USE CASES</div>
+      <h2 class="section-title fade-up fade-up-d1">こんな使い方に</h2>
+      <p class="section-desc fade-up fade-up-d2">
+        英会話・習字・生花・プログラミングまで。<br>
+        ジャンルを問わず、あらゆる「教えたい・学びたい」を受け入れます。
+      </p>
+    </div>
+    <div class="uses-grid">
+      <div class="use-card fade-up">
+        <div class="use-icon">🌸</div>
+        <div class="use-title">生花・茶道・習字</div>
+        <p class="use-desc">伝統文化の教室に。落ち着いた空間で、丁寧なひとときを。</p>
+      </div>
+      <div class="use-card fade-up fade-up-d1">
+        <div class="use-icon">🗣️</div>
+        <div class="use-title">英会話・語学教室</div>
+        <p class="use-desc">少人数グループから個別指導まで、会話に集中できる環境。</p>
+      </div>
+      <div class="use-card fade-up fade-up-d2">
+        <div class="use-icon">💻</div>
+        <div class="use-title">プログラミング教室</div>
+        <p class="use-desc">WiFi完備。子どもから大人まで、ITスキルを身につける場に。</p>
+      </div>
+      <div class="use-card fade-up fade-up-d3">
+        <div class="use-icon">🎵</div>
+        <div class="use-title">ヨガ・音楽・ダンス</div>
+        <p class="use-desc">体を動かす教室にも。広さを活かしてのびのびと。</p>
+      </div>
+      <div class="use-card fade-up fade-up-d4">
+        <div class="use-icon">📋</div>
+        <div class="use-title">会議・打ち合わせ</div>
+        <p class="use-desc">駅前のアクセスで、ビジネスミーティングにも最適。</p>
+      </div>
+      <div class="use-card fade-up fade-up-d5">
+        <div class="use-icon">👥</div>
+        <div class="use-title">サークル・勉強会</div>
+        <p class="use-desc">趣味の集まりや自主勉強会に。気軽に借りられる場所として。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="rooms-header">
+      <div class="section-label fade-up">ROOMS</div>
+      <h2 class="section-title fade-up fade-up-d1">2つのお部屋</h2>
+      <p class="section-desc fade-up fade-up-d2">
+        2階・3階にそれぞれ1室。用途やグループの規模に合わせてお選びください。
+      </p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card fade-up">
+        <img src="images/room-2F-01.webp" alt="2階のお部屋" class="room-img">
+        <div class="room-body">
+          <span class="room-floor">2F</span>
+          <div class="room-name">2階のお部屋</div>
+          <div class="room-specs">
+            <div class="spec-item">
+              <span class="spec-label">定員</span>
+              <span class="spec-value">最大10名</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">料金</span>
+              <span class="spec-value">400円〜 / 30分</span>
+            </div>
+          </div>
+          <div class="room-features">
+            <span class="feature-tag">エアコン</span>
+            <span class="feature-tag">テーブル・椅子</span>
+            <span class="feature-tag">ホワイトボード</span>
+          </div>
+        </div>
+      </div>
+      <div class="room-card fade-up fade-up-d2">
+        <img src="images/room-3F-01.webp" alt="3階のお部屋" class="room-img">
+        <div class="room-body">
+          <span class="room-floor">3F</span>
+          <div class="room-name">3階のお部屋</div>
+          <div class="room-specs">
+            <div class="spec-item">
+              <span class="spec-label">定員</span>
+              <span class="spec-value">最大15名</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">料金</span>
+              <span class="spec-value">400円〜 / 30分</span>
+            </div>
+          </div>
+          <div class="room-features">
+            <span class="feature-tag">Wi-Fi完備</span>
+            <span class="feature-tag">エアコン</span>
+            <span class="feature-tag">テーブル・椅子</span>
+            <span class="feature-tag">ホワイトボード</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label fade-up">PRICING</div>
+    <h2 class="section-title fade-up fade-up-d1">気軽に始められる料金設定</h2>
+    <p class="section-desc fade-up fade-up-d2" style="color: rgba(255,255,255,0.55);">
+      まずは試してみたい方も、定期的に使いたい方も。<br>必要な時間だけ、無理なく。
+    </p>
+    <div class="pricing-wrap">
+      <div class="price-card fade-up fade-up-d1">
+        <div class="price-tag"><span>¥</span>400</div>
+        <div class="price-unit">30分あたり（税込）</div>
+        <hr class="price-divider">
+        <div class="price-examples">
+          <div class="price-ex-row">
+            <span class="price-ex-label">1時間</span>
+            <span class="price-ex-val">¥800</span>
+          </div>
+          <div class="price-ex-row">
+            <span class="price-ex-label">2時間</span>
+            <span class="price-ex-val">¥1,600</span>
+          </div>
+          <div class="price-ex-row">
+            <span class="price-ex-label">3時間</span>
+            <span class="price-ex-val">¥2,400</span>
+          </div>
+          <div class="price-ex-row">
+            <span class="price-ex-label">半日（4時間）</span>
+            <span class="price-ex-val">¥3,200</span>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-notes fade-up fade-up-d2">
+        <div class="pricing-note-item">
+          <div class="note-icon">🗓️</div>
+          <div>
+            <div class="note-title">30分単位で予約可能</div>
+            <div class="note-desc">必要な時間だけ予約できるので、短時間の打ち合わせにも最適です。</div>
+          </div>
+        </div>
+        <div class="pricing-note-item">
+          <div class="note-icon">🔄</div>
+          <div>
+            <div class="note-title">定期利用も歓迎</div>
+            <div class="note-desc">毎週の教室や定例会議など、定期的な利用についてはお気軽にご相談ください。</div>
+          </div>
+        </div>
+        <div class="pricing-note-item">
+          <div class="note-icon">📍</div>
+          <div>
+            <div class="note-title">2F・3Fとも同一料金</div>
+            <div class="note-desc">用途やグループ規模に合わせてお部屋をお選びいただけます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access">
+    <div class="section-label fade-up">ACCESS</div>
+    <h2 class="section-title fade-up fade-up-d1">アクセス</h2>
+    <p class="section-desc fade-up fade-up-d2">駅前すぐ。電車でのご来場が便利です。</p>
+    <div class="access-grid">
+      <div class="access-info">
+        <div class="access-item fade-up">
+          <div class="access-icon">🚃</div>
+          <div>
+            <div class="access-label">最寄り駅</div>
+            <div class="access-value">近鉄大和高田駅</div>
+            <div class="access-sub">徒歩約1分</div>
+          </div>
+        </div>
+        <div class="access-item fade-up fade-up-d1">
+          <div class="access-icon">📍</div>
+          <div>
+            <div class="access-label">住所</div>
+            <div class="access-value">奈良県大和高田市北本町12-14 2F/3F</div>
+            <div class="access-sub">（１階の八剣伝さんが目印です）</div>
+          </div>
+        </div>
+        <div class="access-item fade-up fade-up-d2">
+          <div class="access-icon">📞</div>
+          <div>
+            <div class="access-label">電話でのお問い合わせ</div>
+            <div class="access-value">090-8231-5401</div>
+            <div class="access-sub">お気軽にご連絡ください</div>
+          </div>
+        </div>
+        <div class="access-item fade-up fade-up-d3">
+          <div class="access-icon">🏢</div>
+          <div>
+            <div class="access-label">フロア</div>
+            <div class="access-value">ビル2階・3階</div>
+            <div class="access-sub">各フロアに1室ずつ</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap fade-up fade-up-d2">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.3618920142662!2d135.74017191205996!3d34.519058172872086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60012d4689ae75ab%3A0x74a77179fc4b8a10!2z44GO44KD44KJ44KK44GD44Gp44G-44GV44GN!5e0!3m2!1sja!2sjp!4v1792740612500!5m2!1sja!2sjp" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label fade-up">FAQ</div>
+    <h2 class="section-title fade-up fade-up-d1">よくあるご質問</h2>
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <div class="faq-q">はじめて利用するのですが、手続きはどうすれば？</div>
+        <p class="faq-a">予約サイト（レゼルバ）からオンラインでお申し込みいただけます。はじめての方もお気軽にどうぞ。不明な点はお電話でもご対応します。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d1">
+        <div class="faq-q">どんな用途で使えますか？</div>
+        <p class="faq-a">英会話・習字・生花・プログラミングなどの教室、会議・打ち合わせ、サークル活動、勉強会など幅広い用途でご利用いただけます。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d2">
+        <div class="faq-q">最低利用時間はありますか？</div>
+        <p class="faq-a">30分単位でご予約いただけます。短時間の打ち合わせから半日利用まで、必要な時間だけお使いください。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d3">
+        <div class="faq-q">定期的に使いたいのですが、割引はありますか？</div>
+        <p class="faq-a">定期利用についてはお電話またはお問い合わせにてご相談ください。毎週の教室など、継続的なご利用を歓迎しています。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d4">
+        <div class="faq-q">Wi-Fiや備品は使えますか？</div>
+        <p class="faq-a">Wi-Fi（３Fのお部屋のみ）、テーブル・椅子、エアコン等を完備しています。詳細な備品についてはお問い合わせください。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d5">
+        <div class="faq-q">利用時間前に準備入室可能ですか？？</div>
+        <p class="faq-a">ご利用開始時間から退室までの時間内で準備・設営・撤去をお願いします。</p>
+      </div>
+      <div class="faq-item fade-up fade-up-d5">
+        <div class="faq-q">キャンセルはできますか？</div>
+        <p class="faq-a">キャンセルポリシーについては予約サイト（レゼルバ）の規定に従います。ご予約前にご確認ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="section-label">RESERVATION</div>
+    <h2 class="section-title">まずは空き状況をチェック</h2>
+    <p class="contact-desc">
+      駅前1分。あなたのやりたいことを、ここから始めませんか。<br>
+      オンライン予約はいつでも受け付けています。
+    </p>
+    <div class="contact-actions">
+      <a href="https://reserva.be/gallerydemasaki" target="_blank" class="btn-white">
+        🗓️ 空き状況・予約する
+      </a>
+      <a href="tel:090-8231-5401" class="btn-outline-white">
+        📞 090-8231-5401
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">ぎゃらりぃ<span>どまさき</span></a>
+    <div class="footer-info">
+      <div>奈良県大和高田市 ／ 近鉄大和高田駅前 徒歩1分</div>
+      <div>090-8231-5401</div>
+      <div style="margin-top:8px; font-size:0.72rem; opacity:0.4;">© 2025 ぎゃらりぃどまさき</div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
